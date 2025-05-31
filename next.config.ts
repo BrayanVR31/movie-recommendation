@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
   },
+  images: {
+    remotePatterns: [new URL("https://image.tmdb.org/t/p/**")],
+  },
 };
 
 export default nextConfig;

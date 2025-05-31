@@ -21,6 +21,7 @@ export default function Layout({
           top="0"
           left="0"
           px="16"
+          zIndex="banner"
           alignItems="center"
           borderBottomWidth="1px"
           borderColor={{
@@ -35,6 +36,7 @@ export default function Layout({
             base: "white",
             _dark: "colorPalette.950",
           }}
+          py="8"
         >
           {children}
         </Box>
