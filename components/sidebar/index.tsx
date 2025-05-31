@@ -12,6 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PiPopcornBold } from "react-icons/pi";
 import { menuList } from "./menuLinks";
+import { normalizeUrl } from "@/libs/url";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -44,7 +45,7 @@ export default function Sidebar() {
           Menu
         </Text>
         {menuList.map((item) => {
-          const normPathname = pathname.split("/");
+          const fullPath = normalizeUrl(item.parentPath, item.href);
           return (
             <Button
               key={item.name}
@@ -53,16 +54,16 @@ export default function Sidebar() {
               variant="ghost"
               _hover={{
                 bg:
-                  pathname === normalizedUrl
+                  pathname === fullPath
                     ? "orange.800/15"
                     : "blueSlate.800/80",
               }}
               w="100%"
-              bg={pathname === normalizedUrl ? "orange.800/15" : ""}
-              borderColor={pathname === normalizedUrl ? "orange.500/60" : ""}
-              color={pathname === normalizedUrl ? "orange.400" : "gray.300"}
+              bg={pathname === fullPath ? "orange.800/15" : ""}
+              borderColor={pathname === fullPath ? "orange.500/60" : ""}
+              color={pathname === fullPath ? "orange.400" : "gray.300"}
             >
-              <Link href={normalizedUrl}>
+              <Link href={fullPath}>
                 <item.icon />
                 {item.name}
               </Link>
