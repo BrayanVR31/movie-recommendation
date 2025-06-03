@@ -15,14 +15,6 @@ type DiscoverMovies = {
   total_results: number;
 };
 
-type FetcherOpt = {
-  url: string;
-  queries: Record<string, string>[];
-}
-
-export const getMovies = async ({url, queries}:FetcherOpt) => {
-  const qParams = queries.length>0 ? queries.reduce((prev, curr)=>{
-    
-  }):"";
-  return (await tmdbInstance.get<DiscoverMovies>(url, queries)).data;
+export const getMovies = async (url: string) => {
+  return (await tmdbInstance.get<DiscoverMovies>(url)).data;
 };

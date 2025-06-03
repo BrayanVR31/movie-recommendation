@@ -33,15 +33,16 @@ export default function MovieCard({
         bg="transparent"
         justifyContent="end"
       >
-        <IconButton shadow="md" color="pink.600" rounded="full" size="sm">
+        <IconButton shadow="md" color="slateblue" rounded="full" size="sm">
           <FaHeart />
         </IconButton>
       </HStack>
       <Image w="full" h="full" fit="cover" asChild>
         <NextImage
           fill={true}
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={title}
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUllGqBwABbQDSvUsVrwAAAABJRU5ErkJggg=="
         />
       </Image>
       <VStack

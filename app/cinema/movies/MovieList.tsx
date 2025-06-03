@@ -3,12 +3,13 @@ import { getMovies } from "@/services/movies";
 import MovieCard from "@/components/MovieCard";
 
 type Props = {
-  currentPage?: number;
+  currentIndex: number;
 };
 
-export default function MovieList({ currentPage = 1 }: Props) {
-  const { data } = useSWR("/discover/movie", getMovies, { suspense: true });
-  console.log("total pages: ", data.total_pages);
+export default function MovieList({ currentIndex }: Props) {
+  const { data } = useSWR(`/discover/movie?page=${currentIndex}`, getMovies, {
+    suspense: true,
+  });
   return data.results.map((result) => (
     <MovieCard key={result.id} {...result} />
   ));
