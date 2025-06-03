@@ -14,9 +14,10 @@ export default function Layout({
       <Grid pos="relative" templateRows="80px 1fr" minH="100vh">
         <Flex
           bg={{
-            base: "white",
-            _dark: "colorPalette.950",
+            base: "whiteAlpha.900/50",
+            _dark: "colorPalette.950/65",
           }}
+          backdropFilter="blur(12px)"
           pos="sticky"
           top="0"
           left="0"
